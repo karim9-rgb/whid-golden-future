@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Whid Golden Future — Building Tomorrow, Today</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- AOS Animation Library CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <style>
+    :root {
+      --primary-gold: #D4AF37;
+      --secondary-navy: #0F2C59;
+      --accent-green: #228B22;
+      --light-gray: #F5F5F5;
+      --white: #FFFFFF;
+      --dark-bg: #121212;
+      --dark-text: #f0f0f0;
+      --dark-card: #1e1e1e;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: #333;
+      background-color: var(--white);
+      scroll-behavior: smooth;
+      transition: background-color 0.4s, color 0.4s;
+    }
+
+    body.dark-mode {
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      transition: color 0.4s;
+    }
+
+    .dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode h5, .dark-mode h6 {
+      color: var(--dark-text);
+    }
+
+    .navbar {
+      background-color: var(--secondary-navy) !important;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: background-color 0.4s;
+    }
+
+    .dark-mode .navbar {
+      background-color: #0a1a35 !important;
+    }
+
+    .navbar-brand, .nav-link {
+      color: var(--white) !important;
+      font-weight: 600;
+      transition: color 0.4s;
+    }
+
+    .dark-mode .navbar-brand, .dark-mode .nav-link {
+      color: #e0e0e0 !important;
+    }
+
+    .hero-section {
+      background: linear-gradient(rgba(15, 44, 89, 0.8), rgba(15, 44, 89, 0.8)), url('https://images.pexels.com/photos/325185/pexels-photo-325185.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;
+      color: white;
+      padding: 120px 0 80px;
+      text-align: center;
+      transition: background 0.4s;
+    }
+
+    .dark-mode .hero-section {
+      background: linear-gradient(rgba(10, 26, 53, 0.9), rgba(10, 26, 53, 0.9)), url('https://images.pexels.com/photos/325185/pexels-photo-325185.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;
+    }
+
+    .btn-custom {
+      background-color: var(--primary-gold);
+      color: var(--secondary-navy);
+      font-weight: 600;
+      border-radius: 30px;
+      padding: 12px 30px;
+      border: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-custom:hover {
+      background-color: #b89a2a;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+    }
+
+    .dark-mode .btn-custom {
+      color: #0a1a35;
+    }
+
+    .section-title {
+      position: relative;
+      margin-bottom: 50px;
+      text-align: center;
+      transition: color 0.4s;
+    }
+
+    .dark-mode .section-title {
+      color: var(--dark-text);
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--primary-gold);
+      margin: 15px auto 0;
+    }
+
+    .service-card {
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 30px 20px;
+      margin: 20px 0;
+      transition: all 0.3s ease;
+      background: var(--white);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+
+    .dark-mode .service-card {
+      background: var(--dark-card);
+      border-color: #333;
+      color: var(--dark-text);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .dark-mode .service-card:hover {
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: var(--primary-gold);
+    }
+
+    .testimonial-card {
+      background: var(--light-gray);
+      padding: 25px;
+      border-radius: 12px;
+      margin: 20px 0;
+      position: relative;
+      transition: background 0.4s;
+    }
+
+    .dark-mode .testimonial-card {
+      background: #2a2a2a;
+      color: var(--dark-text);
+    }
+
+    .stars {
+      color: gold;
+      margin-bottom: 10px;
+    }
+
+    .footer {
+      background: var(--secondary-navy);
+      color: var(--white);
+      padding: 60px 0 30px;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    .dark-mode .footer {
+      background: #0a1a35;
+      color: #e0e0e0;
+    }
+
+    .footer a {
+      color: var(--light-gray);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .dark-mode .footer a {
+      color: #ccc;
+    }
+
+    .footer a:hover {
+      color: var(--primary-gold);
+    }
+
+    .social-icons a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      margin: 0 5px;
+      color: var(--white);
+      transition: all 0.3s;
+    }
+
+    .dark-mode .social-icons a {
+      background: rgba(255,255,255,0.05);
+      color: #e0e0e0;
+    }
+
+    .social-icons a:hover {
+      background: var(--primary-gold);
+      color: var(--secondary-navy);
+      transform: translateY(-3px);
+    }
+
+    .dark-mode .social-icons a:hover {
+      color: #0a1a35;
+    }
+
+    /* Language Flags */
+    .flag-icon {
+      font-size: 1.8rem;
+      margin: 0 5px;
+    }
+
+    /* Dark Mode Toggle */
+    .dark-mode-toggle {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      color: white;
+      cursor: pointer;
+      margin-left: 15px;
+    }
+
+    .dark-mode .dark-mode-toggle i {
+      color: #e0e0e0;
+    }
+
+    /* Language Switcher */
+    .lang-switcher {
+      margin-left: 15px;
+    }
+
+    .lang-switcher button {
+      background: none;
+      border: 1px solid rgba(255,255,255,0.5);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .dark-mode .lang-switcher button {
+      border-color: rgba(255,255,255,0.2);
+      color: #e0e0e0;
+    }
+
+    .lang-switcher button.active {
+      background: var(--primary-gold);
+      color: var(--secondary-navy);
+    }
+
+    .dark-mode .lang-switcher button.active {
+      color: #0a1a35;
+    }
+
+    @media (max-width: 768px) {
+      .hero-section h1 { font-size: 2rem; }
+      .hero-section p { font-size: 1.1rem; }
+      .btn-custom { width: 100%; margin: 10px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#home">Whid Golden Future</a>
+      <div class="d-flex align-items-center">
+        <!-- Language Switcher -->
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="bn">BN</button>
+        </div>
+        <!-- Dark Mode Toggle -->
+        <button class="dark-mode-toggle" id="darkModeToggle">
+          <i class="fas fa-moon"></i>
+        </button>
+        <!-- Mobile Toggle -->
+        <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#home" data-key="nav_home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services" data-key="nav_services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about" data-key="nav_about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonials" data-key="nav_testimonials">Testimonials</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact" data-key="nav_contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section" data-aos="fade-up">
+    <div class="container">
+      <h1 class="display-4 fw-bold" data-key="hero_title">Whid Golden Future — Building Tomorrow, Today</h1>
+      <p class="lead mb-5" data-key="hero_subtitle">
+        <span class="bn-text d-none">আপনার বিশ্বস্ত অংশীদার — ল্যান্ড, কৃষি, ম্যানপাওয়ার, মিডিয়া ও ভাষা প্রশিক্ষণে</span>
+        <span class="en-text">Your Trusted Partner in Land, Agro, Manpower, Media & Language Training</span>
+      </p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="#land" class="btn btn-custom" data-key="btn_land">Land Purchase</a>
+        <a href="#agro" class="btn btn-custom" data-key="btn_agro">Agro & Fish</a>
+        <a href="#manpower" class="btn btn-custom" data-key="btn_manpower">Manpower</a>
+        <a href="#media" class="btn btn-custom" data-key="btn_media">Media</a>
+        <a href="#language" class="btn btn-custom" data-key="btn_language">Language Training</a>
+        <a href="#contact" class="btn btn-custom" data-key="btn_contact">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-5 bg-light" data-aos="fade-up">
+    <div class="container">
+      <h2 class="section-title" data-key="section_services">Our Services</h2>
+
+      <!-- Land Purchase -->
+      <div id="land" class="row align-items-center mb-5" data-aos="fade-right">
+        <div class="col-md-4 text-center">
+          <div class="service-icon"><i class="fas fa-home"></i><i class="fas fa-map-marker-alt ms-2"></i><i class="fas fa-file-contract ms-2"></i></div>
+        </div>
+        <div class="col-md-8">
+          <h3 data-key="service_land_title">Land Purchase & Sales Business</h3>
+          <p data-key="service_land_desc">Secure prime land investments with legal assurance and transparent pricing.</p>
+          <a href="#contact" class="btn btn-custom" data-key="btn_inquire">Inquire Now</a>
+        </div>
+      </div>
+
+      <!-- Agro & Fish -->
+      <div id="agro" class="row align-items-center mb-5 flex-row-reverse" data-aos="fade-left">
+        <div class="col-md-4 text-center">
+          <div class="service-icon" style="color: var(--accent-green);"><i class="fas fa-fish"></i><i class="fas fa-seedling ms-2"></i><i class="fas fa-tractor ms-2"></i></div>
+        </div>
+        <div class="col-md-8">
+          <h3 data-key="service_agro_title">Agro & Fish Business</h3>
+          <p data-key="service_agro_desc">Sustainable farming & aquaculture solutions for local and export markets.</p>
+          <a href="#contact" class="btn btn-custom" data-key="btn_explore">Explore Partnership</a>
+        </div>
+      </div>
+
+      <!-- Manpower -->
+      <div id="manpower" class="row align-items-center mb-5" data-aos="fade-right">
+        <div class="col-md-4 text-center">
+          <div class="service-icon"><i class="fas fa-hard-hat"></i><i class="fas fa-globe-asia ms-2"></i><i class="fas fa-plane-departure ms-2"></i></div>
+        </div>
+        <div class="col-md-8">
+          <h3 data-key="service_manpower_title">Manpower Processing Business</h3>
+          <p data-key="service_manpower_desc">End-to-end recruitment, documentation, and placement for global opportunities.</p>
+          <a href="#contact" class="btn btn-custom" data-key="btn_start">Start Your Journey</a>
+        </div>
+      </div>
+
+      <!-- Media -->
+      <div id="media" class="row align-items-center mb-5 flex-row-reverse" data-aos="fade-left">
+        <div class="col-md-4 text-center">
+          <div class="service-icon"><i class="fas fa-video"></i><i class="fas fa-camera ms-2"></i><i class="fas fa-mobile-alt ms-2"></i></div>
+        </div>
+        <div class="col-md-8">
+          <h3 data-key="service_media_title">Media Business</h3>
+          <p data-key="service_media_desc">Professional video, photo, and digital content production for brands and events.</p>
+          <a href="#contact" class="btn btn-custom" data-key="btn_portfolio">View Portfolio</a>
+        </div>
+      </div>
+
+      <!-- Language Training -->
+      <div id="language" class="row align-items-center mb-5" data-aos="fade-right">
+        <div class="col-md-4 text-center">
+          <div class="service-icon">
+            <span class="flag-icon">🇫🇷</span><span class="flag-icon">🇪🇸</span><span class="flag-icon">🇩🇪</span><br>
+            <span class="flag-icon">🇮🇳</span><span class="flag-icon">🇸🇦</span><span class="flag-icon">🇬🇧</span>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <h3 data-key="service_language_title">Private Language Training</h3>
+          <p data-key="service_language_desc">Master French, Spanish, German, Hindi, Arabic & English with certified private tutors.</p>
+          <div class="mb-3">
+            <strong data-key="levels">Levels:</strong> <span data-key="level_detail">Beginner → Intermediate → Advanced</span>
+          </div>
+          <a href="#contact" class="btn btn-custom" data-key="btn_consult">Book Free Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us -->
+  <section id="about" class="py-5" data-aos="fade-up">
+    <div class="container">
+      <h2 class="section-title" data-key="section_about">About Us</h2>
+      <div class="row">
+        <div class="col-lg-6">
+          <h3 data-key="mission_title">Our Mission</h3>
+          <p class="bn-text d-none">নৈতিক ব্যবসা এবং দক্ষতা উন্নয়নের মাধ্যমে সম্প্রদায়কে ক্ষমতায়ন করা।</p>
+          <p class="en-text" data-key="mission_desc">Empowering communities through ethical business and skill development.</p>
+
+          <h3 class="mt-4" data-key="vision_title">Our Vision</h3>
+          <p class="bn-text d-none">২০৩০ সালের মধ্যে বাংলাদেশের সবচেয়ে বিশ্বস্ত বহুমুখী সেবা প্রদানকারী হিসাবে প্রতিষ্ঠিত হওয়া।</p>
+          <p class="en-text" data-key="vision_desc">To be Bangladesh’s most trusted multi-sectoral service provider by 2030.</p>
+        </div>
+        <div class="col-lg-6">
+          <div class="row">
+            <div class="col-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
+              <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Team Member" class="img-fluid rounded">
+              <p class="mt-2"><strong>Mr. Rahman</strong><br><span data-key="advisor">Land & Legal Advisor</span></p>
+            </div>
+            <div class="col-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
+              <img src="https://images.pexels.com/photos/3777552/pexels-photo-3777552.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Team Member" class="img-fluid rounded">
+              <p class="mt-2"><strong>Ms. Yasmin</strong><br><span data-key="agro_manager">Agro Export Manager</span></p>
+            </div>
+            <div class="col-6 mb-4" data-aos="zoom-in" data-aos-delay="300">
+              <img src="https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Team Member" class="img-fluid rounded">
+              <p class="mt-2"><strong>Mr. Karim</strong><br><span data-key="manpower_dir">Manpower Director</span></p>
+            </div>
+            <div class="col-6 mb-4" data-aos="zoom-in" data-aos-delay="400">
+              <img src="https://images.pexels.com/photos/3768125/pexels-photo-3768125.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Team Member" class="img-fluid rounded">
+              <p class="mt-2"><strong>Ms. Nusrat</strong><br><span data-key="media_head">Head of Media & Training</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="py-5 bg-light" data-aos="fade-up">
+    <div class="container">
+      <h2 class="section-title" data-key="section_testimonials">What Our Clients Say</h2>
+      <div class="row">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="testimonial-card">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="bn-text d-none">“উইড গোল্ডেন ফিউচার আমাকে ঢাকার কাছে 5 একর জমি আইনি সহায়তাসহ সুরক্ষিত করতে সাহায্য করেছে। অত্যন্ত পেশাদার!”</p>
+            <p class="en-text" data-key="testimonial1">“Whid Golden Future helped me secure 5 acres of land near Dhaka with full legal support. Highly professional!”</p>
+            <strong>— Farhan Ahmed, Investor</strong>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="testimonial-card">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="bn-text d-none">“তাদের কৃষি দল আমাদের প্রথম ব্যাচ ইউএই তে রপ্তানি করেছে। মসৃণ প্রক্রিয়া এবং দুর্দান্ত যোগাযোগ।”</p>
+            <p class="en-text" data-key="testimonial2">“Their agro team exported our first batch of frozen fish to UAE. Smooth process and great communication.”</p>
+            <strong>— Sultana Fisheries, Chittagong</strong>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="testimonial-card">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="bn-text d-none">“3 সপ্তাহের মধ্যে সৌদি আরবে চাকরি পেয়েছি! তাদের ম্যানপাওয়ার দল দক্ষ এবং বিশ্বস্ত।”</p>
+            <p class="en-text" data-key="testimonial3">“Got placed in Saudi Arabia within 3 weeks! Their manpower team is efficient and trustworthy.”</p>
+            <strong>— Arif Hossain, Job Seeker</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-5" data-aos="fade-up">
+    <div class="container">
+      <h2 class="section-title" data-key="section_contact">Contact Us</h2>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="mb-4">
+            <h5><i class="fas fa-map-marker-alt me-2"></i><span data-key="office_address">Office Address</span></h5>
+            <p>House #45, Road #7, Dhanmondi, Dhaka 1209, Bangladesh</p>
+          </div>
+          <div class="mb-4">
+            <h5><i class="fas fa-phone-alt me-2"></i><span data-key="call_us">Call Us</span></h5>
+            <p><a href="tel:+8801712345678">+880 1712 345678</a></p>
+            <a href="https://wa.me/8801712345678" class="btn btn-success"><i class="fab fa-whatsapp me-2"></i> WhatsApp</a>
+          </div>
+          <div class="mb-4">
+            <h5><i class="fas fa-envelope me-2"></i><span data-key="email_us">Email</span></h5>
+            <p><a href="mailto:info@whidgoldenfuture.com">info@whidgoldenfuture.com</a></p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <form>
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Your Name" required data-key="placeholder_name">
+            </div>
+            <div class="mb-3">
+              <input type="email" class="form-control" placeholder="Your Email" required data-key="placeholder_email">
+            </div>
+            <div class="mb-3">
+              <select class="form-select" required>
+                <option value="" disabled selected data-key="select_service">Interested In</option>
+                <option value="land" data-key="opt_land">Land Purchase/Sales</option>
+                <option value="agro" data-key="opt_agro">Agro & Fish Business</option>
+                <option value="manpower" data-key="opt_manpower">Manpower Processing</option>
+                <option value="media" data-key="opt_media">Media Production</option>
+                <option value="language" data-key="opt_language">Language Training</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <textarea class="form-control" rows="4" placeholder="Your Message" required data-key="placeholder_message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-custom w-100" data-key="btn_send">Send Message</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="mt-5">
+        <h5 class="text-center" data-key="our_location">Our Location</h5>
+        <div class="ratio ratio-16x9">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.900633879732!2d90.3925725143133!3d23.753458693252677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e0!3m2!1sen!2sbd!4v1640000000000!5m2!1sen!2sbd" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <h5>Whid Golden Future</h5>
+          <p class="bn-text d-none">ভবিষ্যৎ গড়ুন আজই — আন্তরিকতা, উদ্ভাবন ও প্রভাবের মাধ্যমে।</p>
+          <p class="en-text" data-key="footer_tagline">Building tomorrow, today — with integrity, innovation, and impact.</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5 data-key="quick_links">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="#home" data-key="footer_home">Home</a></li>
+            <li><a href="#services" data-key="footer_services">Services</a></li>
+            <li><a href="#about" data-key="footer_about">About Us</a></li>
+            <li><a href="#contact" data-key="footer_contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5 data-key="follow_us">Follow Us</h5>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <div class="mt-3">
+            <small>
+              © 2025 Whid Golden Future. All Rights Reserved.<br>
+              <a href="#" data-key="privacy_policy">Privacy Policy</a> | <a href="#" data-key="terms_service">Terms of Service</a>
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+
+    // Check user preference
+    const savedMode = localStorage.getItem('darkMode');
+    if (savedMode === 'enabled') {
+      body.classList.add('dark-mode');
+      darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+
+    darkModeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('darkMode', 'enabled');
+        darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+      } else {
+        localStorage.setItem('darkMode', 'disabled');
+        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+      }
+    });
+
+    // Multilingual Toggle
+    const langButtons = document.querySelectorAll('.lang-btn');
+    const bnTexts = document.querySelectorAll('.bn-text');
+    const enTexts = document.querySelectorAll('.en-text');
+    const translatableElements = document.querySelectorAll('[data-key]');
+
+    // Load saved language
+    const savedLang = localStorage.getItem('language') || 'en';
+    setLanguage(savedLang);
+
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.getAttribute('data-lang');
+        setLanguage(lang);
+
+        // Save to localStorage
+        localStorage.setItem('language', lang);
+
+        // Update active button
+        langButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+    function setLanguage(lang) {
+      if (lang === 'bn') {
+        bnTexts.forEach(el => el.classList.remove('d-none'));
+        enTexts.forEach(el => el.classList.add('d-none'));
+
+        // Translate data-key elements (optional: expand with full JSON later)
+        translatableElements.forEach(el => {
+          const key = el.getAttribute('data-key');
+          if (translations.bn[key]) {
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+              el.placeholder = translations.bn[key];
+            } else if (el.tagName === 'SELECT' && el.children.length > 0) {
+              // Handle select options
+              Array.from(el.children).forEach(option => {
+                const optKey = option.getAttribute('data-key');
+                if (optKey && translations.bn[optKey]) {
+                  option.textContent = translations.bn[optKey];
+                }
+              });
+            } else {
+              el.textContent = translations.bn[key] || el.textContent;
+            }
+          }
+        });
+      } else {
+        bnTexts.forEach(el => el.classList.add('d-none'));
+        enTexts.forEach(el => el.classList.remove('d-none'));
+
+        translatableElements.forEach(el => {
+          const key = el.getAttribute('data-key');
+          if (translations.en[key]) {
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+              el.placeholder = translations.en[key];
+            } else if (el.tagName === 'SELECT' && el.children.length > 0) {
+              Array.from(el.children).forEach(option => {
+                const optKey = option.getAttribute('data-key');
+                if (optKey && translations.en[optKey]) {
+                  option.textContent = translations.en[optKey];
+                }
+              });
+            } else {
+              el.textContent = translations.en[key] || el.textContent;
+            }
+          }
+        });
+      }
+    }
+
+    // TRANSLATIONS (Expand as needed)
+    const translations = {
+      en: {
+        // Nav
+        nav_home: "Home",
+        nav_services: "Services",
+        nav_about: "About Us",
+        nav_testimonials: "Testimonials",
+        nav_contact: "Contact",
+        // Hero
+        hero_title: "Whid Golden Future — Building Tomorrow, Today",
+        hero_subtitle: "Your Trusted Partner in Land, Agro, Manpower, Media & Language Training",
+        // Buttons
+        btn_land: "Land Purchase",
+        btn_agro: "Agro & Fish",
+        btn_manpower: "Manpower",
+        btn_media: "Media",
+        btn_language: "Language Training",
+        btn_contact: "Contact Us",
+        // Services
+        section_services: "Our Services",
+        service_land_title: "Land Purchase & Sales Business",
+        service_land_desc: "Secure prime land investments with legal assurance and transparent pricing.",
+        service_agro_title: "Agro & Fish Business",
+        service_agro_desc: "Sustainable farming & aquaculture solutions for local and export markets.",
+        service_manpower_title: "Manpower Processing Business",
+        service_manpower_desc: "End-to-end recruitment, documentation, and placement for global opportunities.",
+        service_media_title: "Media Business",
+        service_media_desc: "Professional video, photo, and digital content production for brands and events.",
+        service_language_title: "Private Language Training",
+        service_language_desc: "Master French, Spanish, German, Hindi, Arabic & English with certified private tutors.",
+        levels: "Levels:",
+        level_detail: "Beginner → Intermediate → Advanced",
+        btn_inquire: "Inquire Now",
+        btn_explore: "Explore Partnership",
+        btn_start: "Start Your Journey",
+        btn_portfolio: "View Portfolio",
+        btn_consult: "Book Free Consultation",
+        // About
+        section_about: "About Us",
+        mission_title: "Our Mission",
+        mission_desc: "Empowering communities through ethical business and skill development.",
+        vision_title: "Our Vision",
+        vision_desc: "To be Bangladesh’s most trusted multi-sectoral service provider by 2030.",
+        advisor: "Land & Legal Advisor",
+        agro_manager: "Agro Export Manager",
+        manpower_dir: "Manpower Director",
+        media_head: "Head of Media & Training",
+        // Testimonials
+        section_testimonials: "What Our Clients Say",
+        testimonial1: "Whid Golden Future helped me secure 5 acres of land near Dhaka with full legal support. Highly professional!",
+        testimonial2: "Their agro team exported our first batch of frozen fish to UAE. Smooth process and great communication.",
+        testimonial3: "Got placed in Saudi Arabia within 3 weeks! Their manpower team is efficient and trustworthy.",
+        // Contact
+        section_contact: "Contact Us",
+        office_address: "Office Address",
+        call_us: "Call Us",
+        email_us: "Email",
+        placeholder_name: "Your Name",
+        placeholder_email: "Your Email",
+        select_service: "Interested In",
+        opt_land: "Land Purchase/Sales",
+        opt_agro: "Agro & Fish Business",
+        opt_manpower: "Manpower Processing",
+        opt_media: "Media Production",
+        opt_language: "Language Training",
+        placeholder_message: "Your Message",
+        btn_send: "Send Message",
+        our_location: "Our Location",
+        // Footer
+        footer_tagline: "Building tomorrow, today — with integrity, innovation, and impact.",
+        quick_links: "Quick Links",
+        footer_home: "Home",
+        footer_services: "Services",
+        footer_about: "About Us",
+        footer_contact: "Contact",
+        follow_us: "Follow Us",
+        privacy_policy: "Privacy Policy",
+        terms_service: "Terms of Service"
+      },
+      bn: {
+        // Nav
+        nav_home: "হোম",
+        nav_services: "সেবাসমূহ",
+        nav_about: "আমাদের সম্পর্কে",
+        nav_testimonials: "ক্লায়েন্টদের মতামত",
+        nav_contact: "যোগাযোগ",
+        // Hero
+        hero_title: "উইড গোল্ডেন ফিউচার — ভবিষ্যৎ গড়ুন আজই",
+        hero_subtitle: "আপনার বিশ্বস্ত অংশীদার — ল্যান্ড, কৃষি, ম্যানপাওয়ার, মিডিয়া ও ভাষা প্রশিক্ষণে",
+        // Buttons
+        btn_land: "জমি ক্রয়",
+        btn_agro: "কৃষি ও মাছ ব্যবসা",
+        btn_manpower: "ম্যানপাওয়ার",
+        btn_media: "মিডিয়া",
+        btn_language: "ভাষা প্রশিক্ষণ",
+        btn_contact: "যোগাযোগ করুন",
+        // Services
+        section_services: "আমাদের সেবাসমূহ",
+        service_land_title: "জমি ক্রয় ও বিক্রয় ব্যবসা",
+        service_land_desc: "আইনি নিশ্চয়তা ও স্বচ্ছ মূল্য নির্ধারণের মাধ্যমে মূল্যবান জমির বিনিয়োগ নিশ্চিত করুন।",
+        service_agro_title: "কৃষি ও মাছ ব্যবসা",
+        service_agro_desc: "স্থানীয় ও রপ্তানি বাজারের জন্য টেকসই কৃষি ও জেলে পদ্ধতির সমাধান।",
+        service_manpower_title: "ম্যানপাওয়ার প্রসেসিং ব্যবসা",
+        service_manpower_desc: "বৈশ্বিক সুযোগের জন্য সম্পূর্ণ নিয়োগ, নথিপত্র ও বসবাসের ব্যবস্থা।",
+        service_media_title: "মিডিয়া ব্যবসা",
+        service_media_desc: "ব্র্যান্ড ও ইভেন্টের জন্য পেশাদার ভিডিও, ছবি ও ডিজিটাল কন্টেন্ট প্রোডাকশন।",
+        service_language_title: "ব্যক্তিগত ভাষা প্রশিক্ষণ",
+        service_language_desc: "প্রশিক্ষিত ব্যক্তিগত শিক্ষকদের সাথে ফরাসি, স্পেনীয়, জার্মান, হিন্দি, আরবি ও ইংরেজি ভাষায় দক্ষতা অর্জন করুন।",
+        levels: "লেভেল:",
+        level_detail: "প্রাথমিক → মধ্যম → উচ্চতর",
+        btn_inquire: "এখনই জিজ্ঞাসা করুন",
+        btn_explore: "অংশীদারিত্ব অন্বেষণ করুন",
+        btn_start: "আপনার যাত্রা শুরু করুন",
+        btn_portfolio: "পোর্টফোলিও দেখুন",
+        btn_consult: "ফ্রি পরামর্শ বুক করুন",
+        // About
+        section_about: "আমাদের সম্পর্কে",
+        mission_title: "আমাদের মিশন",
+        mission_desc: "নৈতিক ব্যবসা এবং দক্ষতা উন্নয়নের মাধ্যমে সম্প্রদায়কে ক্ষমতায়ন করা।",
+        vision_title: "আমাদের ভিশন",
+        vision_desc: "২০৩০ সালের মধ্যে বাংলাদেশের সবচেয়ে বিশ্বস্ত বহুমুখী সেবা প্রদানকারী হিসাবে প্রতিষ্ঠিত হওয়া।",
+        advisor: "জমি ও আইনি উপদেষ্টা",
+        agro_manager: "কৃষি রপ্তানি ব্যবস্থাপক",
+        manpower_dir: "ম্যানপাওয়ার পরিচালক",
+        media_head: "মিডিয়া ও প্রশিক্ষণের প্রধান",
+        // Testimonials
+        section_testimonials: "আমাদের ক্লায়েন্টদের মতামত",
+        testimonial1: "উইড গোল্ডেন ফিউচার আমাকে ঢাকার কাছে 5 একর জমি আইনি সহায়তাসহ সুরক্ষিত করতে সাহায্য করেছে। অত্যন্ত পেশাদার!",
+        testimonial2: "তাদের কৃষি দল আমাদের প্রথম ব্যাচ ইউএই তে রপ্তানি করেছে। মসৃণ প্রক্রিয়া এবং দুর্দান্ত যোগাযোগ।",
+        testimonial3: "3 সপ্তাহের মধ্যে সৌদি আরবে চাকরি পেয়েছি! তাদের ম্যানপাওয়ার দল দক্ষ এবং বিশ্বস্ত।",
+        // Contact
+        section_contact: "যোগাযোগ করুন",
+        office_address: "অফিসের ঠিকানা",
+        call_us: "কল করুন",
+        email_us: "ইমেইল",
+        placeholder_name: "আপনার নাম",
+        placeholder_email: "আপনার ইমেইল",
+        select_service: "আগ্রহের বিষয়",
+        opt_land: "জমি ক্রয়/বিক্রয়",
+        opt_agro: "কৃষি ও মাছ ব্যবসা",
+        opt_manpower: "ম্যানপাওয়ার প্রসেসিং",
+        opt_media: "মিডিয়া প্রোডাকশন",
+        opt_language: "ভাষা প্রশিক্ষণ",
+        placeholder_message: "আপনার বার্তা",
+        btn_send: "বার্তা পাঠান",
+        our_location: "আমাদের অবস্থান",
+        // Footer
+        footer_tagline: "ভবিষ্যৎ গড়ুন আজই — আন্তরিকতা, উদ্ভাবন ও প্রভাবের মাধ্যমে।",
+        quick_links: "দ্রুত লিঙ্ক",
+        footer_home: "হোম",
+        footer_services: "সেবাসমূহ",
+        footer_about: "আমাদের সম্পর্কে",
+        footer_contact: "যোগাযোগ",
+        follow_us: "আমাদের অনুসরণ করুন",
+        privacy_policy: "গোপনীয়তা নীতি",
+        terms_service: "সেবার শর্তাবলী"
+      }
+    };
+  </script>
+
+</body>
+</html>
